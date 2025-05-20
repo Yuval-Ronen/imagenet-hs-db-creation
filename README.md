@@ -65,7 +65,7 @@ You can optionally test the model first on the **CAVE dataset** — but it's **n
 
 ## ⚙️ How to Use
 
-1. Run Utils and preperations to connect to Google Drive and install all the requirements
+1. Run **Utils and preperations** to connect to Google Drive and install all the requirements
 2. Check GPU- you must have GPU to use the model
 3. Run **Model setup** and **Model loading and preperation**
 4. **Use ImageNet-R** with the option you want. sampel from all classes or choose the class you want to convert from.
