@@ -13,7 +13,14 @@ The primary goal is to provide a practical tool for generating large-scale, dive
 ## 🧪 Evaluation Results
 
 After applying the AWAN model to different datasets, we evaluated its performance using PSNR, SSIM, and RMSE:
+### ✅ On one image of the test set from the original DB used to train the model
 
+```
+📊 RESULTS:
+PSNR: 30.332356889477786
+SSIM: 0.8704928806007087
+RMSE: 0.030566415
+```
 ### ✅ On CAVE DB (Unseen Test Set)
 
 ```
@@ -33,7 +40,14 @@ These results are acceptable but lower than those reported on the training/test 
 - Each scene contains 31 grayscale PNGs from 400nm to 700nm at 10nm intervals
 - Each image is a 16-bit grayscale PNG
 - Used as a real-world benchmark to test AWAN's generalization
-- Download: [CAVE Dataset](http://www.cs.columbia.edu/CAVE/databases/multispectral/)
+- You can copy this folder into your Drive and try the model on the RGB folder:
+https://drive.google.com/drive/folders/10kbbvLUQ4fSmEQ4cm_xt3VvN3zORsDax?usp=sharing
+- You can use CAVE sample drive to process it yourself:
+https://drive.google.com/drive/folders/1DbWTa7EOyvowKSsqGEqtYIUxMYhaadj3?usp=sharing
+-Link for the entire DB:
+https://cave.cs.columbia.edu/old/databases/multispectral/zip/complete_ms_data.zip
+-Link for the Website:
+https://cave.cs.columbia.edu/repository/Multispectral
 
 ### 🐘 2. **ImageNet-R**
 This project focuses on converting **ImageNet-R RGB classes into a hyperspectral dataset** using the AWAN model.
@@ -44,16 +58,22 @@ This project focuses on converting **ImageNet-R RGB classes into a hyperspectral
   - As a demonstration, the **first class (`n01443537`) containing 230 images** has been fully converted to 31-band hyperspectral format.
 - You can also:
   - Convert any specific class by changing `cls_path`
+    run "Choose specific class you want to convert"
   - Or sample randomly across all classes
+    run "Sample randomly images from every class"
 You can optionally test the model first on the **CAVE dataset** — but it's **not required** to use this workflow.
 
 ## ⚙️ How to Use
 
-1. Load the pretrained AWAN model
-2. Call `RGB_2_HS(model, input_path, output_path)`
-3. Outputs are `.mat` files containing 31-band hyperspectral data
+1. Run Utils and preperations to connect to Google Drive and install all the requirements
+2. Check GPU- you must have GPU to use the model
+3. Run **Model setup** and **Model loading and preperation**
+4. **Use ImageNet-R** with the option you want. sampel from all classes or choose the class you want to convert from.
+5. Optionally, test the model on the CAVE DB. Run **HS reconstruction from RGB and evaluation on CAVE DB**
 
-You can visualize the result using the `show_hs_rgb()` function (selecting bands for R/G/B, e.g., 650/550/450nm). Or with HS_RGB_show() function that will visiualize the rgb image next to it's Hyperspectral constructed file.
+- Use the model:
+You can convert any RGB image by using 'RGB_2_HS(model, jpg_folder, reconstructed_folder)'. - Evaluation: You can Show evaluation by using 'output_evaluation_res(original_folder, reconstructed_folder)'.
+- Visualization: You can visualize the result using the `show_hs_rgb()` function (selecting bands for R/G/B, e.g., 650/550/450nm). Or with HS_RGB_show() function that will visiualize the rgb image next to it's Hyperspectral constructed file.
 
 
 
