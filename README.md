@@ -1,6 +1,7 @@
 # 🌈 RGB to Hyperspectral Image Generation using AWAN
-
-This project uses a **pretrained AWAN model** ([Adaptive Weighted Attention Network](https://openaccess.thecvf.com/content_CVPRW_2020/papers/w31/Li_Adaptive_Weighted_Attention_Network_With_Camera_Spectral_Sensitivity_Prior_for_CVPRW_2020_paper.pdf)) to convert standard RGB images into 31-band hyperspectral (HS) images. The goal is to explore spectral reconstruction from natural images in different datasets and evaluate performance.
+ 
+This project uses a **pretrained AWAN model** ([Adaptive Weighted Attention Network](https://openaccess.thecvf.com/content_CVPRW_2020/papers/w31/Li_Adaptive_Weighted_Attention_Network_With_Camera_Spectral_Sensitivity_Prior_for_CVPRW_2020_paper.pdf)) to convert standard RGB images into 31-band hyperspectral (HS) images.
+The primary goal is to provide a practical tool for generating large-scale, diverse synthetic hyperspectral datasets from RGB sources like ImageNet-R — helping address the scarcity of publicly available HS databases. While AWAN was originally designed for spectral reconstruction, this project leverages it specifically for dataset creation
 
 ## 📚 Model
 
@@ -27,8 +28,7 @@ These results are acceptable but lower than those reported on the training/test 
 ## 🗂️ Datasets Used
 
 ### 📦 1. **CAVE Hyperspectral Dataset** 
-
-- Only if you want to check the model
+- Optional, if you want to validate the model
 - 32 scenes (indoor objects, fabric, skin, food, etc.)
 - Each scene contains 31 grayscale PNGs from 400nm to 700nm at 10nm intervals
 - Each image is a 16-bit grayscale PNG
@@ -36,14 +36,16 @@ These results are acceptable but lower than those reported on the training/test 
 - Download: [CAVE Dataset](http://www.cs.columbia.edu/CAVE/databases/multispectral/)
 
 ### 🐘 2. **ImageNet-R**
-
-- A rendition-style subset of ImageNet (cartoons, paintings, sketches, etc.)
-- Contains ~30,000 images across 200 classes
-- Used to test AWAN on visually diverse, non-photographic inputs
-- In this project, the **first class (`n01443537`) with 230 images** was fully converted to hyperspectral
+This project focuses on converting **ImageNet-R RGB classes into a hyperspectral dataset** using the AWAN model.
+-ImageNet-R
+  - A rendition-style subset of ImageNet (cartoons, paintings, sketches, etc.)
+  - Contains ~30,000 images across 200 classes
+  - Used to test AWAN on visually diverse, non-photographic inputs
+  - As a demonstration, the **first class (`n01443537`) containing 230 images** has been fully converted to 31-band hyperspectral format.
 - You can also:
   - Convert any specific class by changing `cls_path`
   - Or sample randomly across all classes
+You can optionally test the model first on the **CAVE dataset** — but it's **not required** to use this workflow.
 
 ## ⚙️ How to Use
 
@@ -51,18 +53,8 @@ These results are acceptable but lower than those reported on the training/test 
 2. Call `RGB_2_HS(model, input_path, output_path)`
 3. Outputs are `.mat` files containing 31-band hyperspectral data
 
-You can visualize the result using the `show_hs_rgb()` function (selecting bands for R/G/B, e.g., 650/550/450nm).
+You can visualize the result using the `show_hs_rgb()` function (selecting bands for R/G/B, e.g., 650/550/450nm). Or with HS_RGB_show() function that will visiualize the rgb image next to it's Hyperspectral constructed file.
 
-## 📁 File Structure
-
-```
-├── CAVE_DB/               # 31-band hyperspectral images
-├── ImageNet-R/            # Original RGB classes
-├── imagenet_results/      # AWAN-generated HS reconstructions
-├── imagenet-r-sample/     # Sampled RGB images
-├── MS_RGB_to_HS_Database_using_AWAN_Network.ipynb  # Main Colab notebook
-└── README.md              # This file
-```
 
 
 @InProceedings{Li_2020_CVPR_Workshops,
