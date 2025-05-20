@@ -44,9 +44,9 @@ These results are acceptable but lower than those reported on the training/test 
 https://drive.google.com/drive/folders/10kbbvLUQ4fSmEQ4cm_xt3VvN3zORsDax?usp=sharing
 - You can use CAVE sample drive to process it yourself:
 https://drive.google.com/drive/folders/1DbWTa7EOyvowKSsqGEqtYIUxMYhaadj3?usp=sharing
--Link for the entire DB:
+- Link for the entire DB:
 https://cave.cs.columbia.edu/old/databases/multispectral/zip/complete_ms_data.zip
--Link for the Website:
+- Link for the Website:
 https://cave.cs.columbia.edu/repository/Multispectral
 
 ### 🐘 2. **ImageNet-R**
