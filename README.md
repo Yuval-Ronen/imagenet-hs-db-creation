@@ -55,7 +55,7 @@ This project focuses on converting **ImageNet-R RGB classes into a hyperspectral
   - A rendition-style subset of ImageNet (cartoons, paintings, sketches, etc.)
   - Contains ~30,000 images across 200 classes
   - Used to test AWAN on visually diverse, non-photographic inputs
-  - As a demonstration, the **first class (`n01443537`) containing 230 images** has been fully converted to 31-band hyperspectral format.
+  - As a demonstration, the **first class (`n01443537`) containing 230 images** has been fully converted to 31-band hyperspectral format. you can find the Hyperspectral images in this link https://drive.google.com/drive/folders/10wlq1Fq4zy4tInZUkUvOldo69plVIG6_?usp=sharing
 - You can also:
   - Convert any specific class by changing `cls_path`
     run "Choose specific class you want to convert"
